@@ -1,0 +1,813 @@
+{
+	"info": {
+		"_postman_id": "d40b3118-ebf4-4771-98c1-127c926934b6",
+		"name": "ARJ",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4292671"
+	},
+	"item": [
+		{
+			"name": "Juiz",
+			"item": [
+				{
+					"name": "Lista juiz",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/juiz?modo=COMBO&pagina=1&por_pagina=25",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"juiz"
+							],
+							"query": [
+								{
+									"key": "modo",
+									"value": "COMBO"
+								},
+								{
+									"key": "pagina",
+									"value": "1"
+								},
+								{
+									"key": "por_pagina",
+									"value": "25"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Busca juiz",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/juiz/10",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"juiz",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cria juiz",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"pessoa\": {\r\n        \"nome\": \"Juiza Helaize Santos 4\",\r\n        \"apelido_fantasia\": \"Hela\",\r\n        \"documento\": \"191191191004\",\r\n        \"tipo\": \"F\",        \r\n        \"nascimento_fundacao\": \"1987-03-06\",\r\n        \"nacionalidade\": \"brasileiro\",\r\n        \"tipo_documento\": \"CPF\",\r\n        \"rg_ie\": \"11122233344\",\r\n        \"capital_social\": 1000,\r\n        \"enable\": true\r\n    },\r\n    \"especifico\": {\r\n        \"vara_judicial_id\": 2\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/juiz",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"juiz"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Importação",
+			"item": [
+				{
+					"name": "Importa arquivos",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "files",
+									"type": "file",
+									"src": "/D:/@transf/arj/processos_reestruturacao.csv"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/importacao/PROCESSO",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"importacao",
+								"PROCESSO"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Processo",
+			"item": [
+				{
+					"name": "Lista tipo processo",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "files",
+									"type": "file",
+									"src": "/D:/@transf/arj/processos_reestruturacao.csv"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/tipo_processo",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"tipo_processo"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Doc",
+			"item": [
+				{
+					"name": "Doc",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/docs",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"docs"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pessoa",
+			"item": [
+				{
+					"name": "Lista pessoa",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/pessoa?tipo=F&modo=GRID&pagina=1&por_pagina=20",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"pessoa"
+							],
+							"query": [
+								{
+									"key": "tipo",
+									"value": "F"
+								},
+								{
+									"key": "modo",
+									"value": "GRID"
+								},
+								{
+									"key": "pagina",
+									"value": "1"
+								},
+								{
+									"key": "por_pagina",
+									"value": "20"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Busca pessoa",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2Njk5NTE4MzUsImV4cCI6MTY3MDAzODI5NSwidHlwZV90b2tlbiI6ImFjY2Vzc190b2tlbiIsInVzZXJfaWQiOjEsImFwZWxpZG9fZmFudGFzaWEiOiJKb3JnZSIsInBlcmZpbCI6IkFETUlOSVNUUkFET1JfSlVESUNJQUwiLCJyb2xlIjoiMzAifQ.zIftBfgnoTKDhUmd-eelvDB87xQEurx9-2-mM9NpFBE",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/pessoa/18",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"pessoa",
+								"18"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cria pessoa",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Empresa 5\",\r\n    \"apelido_fantasia\": \"Acme 5\",\r\n    \"documento\": \"00022233344456\",\r\n    \"tipo\": \"J\",        \r\n    \"nascimento_fundacao\": \"1987-03-06\",\r\n    \"nacionalidade\": \"brasileiro\",\r\n    \"tipo_documento\": \"CNPJ\",\r\n    \"rg_ie\": \"11122233344\",\r\n    \"capital_social\": 1000,\r\n    \"enable\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/pessoa",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"pessoa"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Telefone",
+			"item": [
+				{
+					"name": "Lista telefone",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/pessoa/10/telefone",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"pessoa",
+								"10",
+								"telefone"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Busca telefone",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2Njk5NTE4MzUsImV4cCI6MTY3MDAzODI5NSwidHlwZV90b2tlbiI6ImFjY2Vzc190b2tlbiIsInVzZXJfaWQiOjEsImFwZWxpZG9fZmFudGFzaWEiOiJKb3JnZSIsInBlcmZpbCI6IkFETUlOSVNUUkFET1JfSlVESUNJQUwiLCJyb2xlIjoiMzAifQ.zIftBfgnoTKDhUmd-eelvDB87xQEurx9-2-mM9NpFBE",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/pessoa/10/telefone/3",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"pessoa",
+								"10",
+								"telefone",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cria telefone",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"tipo_telefone\": \"RESIDENCIAL\",\r\n\t\"ddi\": \"55\",\r\n\t\"ddd\": \"11\",\r\n\t\"numero\": \"22335522\",\r\n\t\"prioridade\": 1,\r\n\t\"enable\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/pessoa/10/telefone",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"pessoa",
+								"10",
+								"telefone"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edita telefone",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"tipo_telefone\": \"RESIDENCIAL\",\r\n\t\"ddi\": \"55\",\r\n\t\"ddd\": \"11\",\r\n\t\"numero\": \"44556699\",\r\n\t\"prioridade\": 1,\r\n\t\"enable\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/pessoa/10/telefone/3",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"pessoa",
+								"10",
+								"telefone",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Email",
+			"item": [
+				{
+					"name": "Lista email",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/pessoa/10/email",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"pessoa",
+								"10",
+								"email"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Busca email",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2Njk5NTE4MzUsImV4cCI6MTY3MDAzODI5NSwidHlwZV90b2tlbiI6ImFjY2Vzc190b2tlbiIsInVzZXJfaWQiOjEsImFwZWxpZG9fZmFudGFzaWEiOiJKb3JnZSIsInBlcmZpbCI6IkFETUlOSVNUUkFET1JfSlVESUNJQUwiLCJyb2xlIjoiMzAifQ.zIftBfgnoTKDhUmd-eelvDB87xQEurx9-2-mM9NpFBE",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/pessoa/10/email/6",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"pessoa",
+								"10",
+								"email",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cria email",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"tipo_email\": \"PESSOAL\",\r\n\t\"email\": \"teste2@teste.com\",\r\n\t\"is_to_login\": false,\t\r\n\t\"prioridade\": 1,\r\n\t\"enable\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/pessoa/10/email",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"pessoa",
+								"10",
+								"email"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edita telefone",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"tipo_email\": \"PESSOAL\",\r\n\t\"email\": \"teste2@teste.com\",\r\n\t\"is_to_login\": false,\t\r\n\t\"prioridade\": 4,\r\n\t\"enable\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/pessoa/10/email/6",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"pessoa",
+								"10",
+								"email",
+								"6"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Endereço",
+			"item": [
+				{
+					"name": "Lista endereco",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/pessoa/10/endereco",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"pessoa",
+								"10",
+								"endereco"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Busca endereco",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2Njk5NTE4MzUsImV4cCI6MTY3MDAzODI5NSwidHlwZV90b2tlbiI6ImFjY2Vzc190b2tlbiIsInVzZXJfaWQiOjEsImFwZWxpZG9fZmFudGFzaWEiOiJKb3JnZSIsInBlcmZpbCI6IkFETUlOSVNUUkFET1JfSlVESUNJQUwiLCJyb2xlIjoiMzAifQ.zIftBfgnoTKDhUmd-eelvDB87xQEurx9-2-mM9NpFBE",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/pessoa/10/endereco/4",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"pessoa",
+								"10",
+								"endereco",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cria endereco",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"tipo_endereco\": \"PESSOAL\",\r\n    \"pais\": \"Brasil\",\r\n\t\"uf\": \"SP\",\r\n\t\"cidade\": \"São Paulo\",\r\n\t\"bairro\": \"Centro\",\r\n\t\"tipo_logradouro\": \"Rua\",\r\n\t\"logradouro\": \"Vinte quatro de maio\",\r\n\t\"numero\": \"321\",\r\n\t\"complemento\": \"Casa 1\",\r\n\t\"cep\": \"09988745\",\t\r\n\t\"prioridade\": 1,\r\n\t\"enable\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/pessoa/10/endereco",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"pessoa",
+								"10",
+								"endereco"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edita endereco",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"tipo_endereco\": \"PESSOAL\",\r\n    \"pais\": \"Brasil\",\r\n\t\"uf\": \"SP\",\r\n\t\"cidade\": \"São Paulo\",\r\n\t\"bairro\": \"Centro\",\r\n\t\"tipo_logradouro\": \"Rua\",\r\n\t\"logradouro\": \"Vinte quatro de maio\",\r\n\t\"numero\": \"698\",\r\n\t\"complemento\": \"Casa 1\",\r\n\t\"cep\": \"09988745\",\t\r\n\t\"prioridade\": 1,\r\n\t\"enable\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/pessoa/10/endereco/4",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"pessoa",
+								"10",
+								"endereco",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Administrador Judicical",
+			"item": [
+				{
+					"name": "Lista Administrador Judicical",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/administrador_judicial?modo=GRID&pagina=1&por_pagina=2",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"administrador_judicial"
+							],
+							"query": [
+								{
+									"key": "modo",
+									"value": "GRID"
+								},
+								{
+									"key": "pagina",
+									"value": "1"
+								},
+								{
+									"key": "por_pagina",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Busca Administrador Judicical",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/administrador_judicial/17",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"administrador_judicial",
+								"17"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cria Administrador Judicical",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"pessoa\": {\r\n        \"nome\": \"Administrador Jorge 7\",\r\n        \"apelido_fantasia\": \"Jorge\",\r\n        \"documento\": \"4000030037\",\r\n        \"tipo\": \"F\",\r\n        \"email_login\": \"admin7@teste.com.br\",\r\n        \"nascimento_fundacao\": \"1987-03-06\",\r\n        \"nacionalidade\": \"brasileiro\",\r\n        \"tipo_documento\": \"CPF\",\r\n        \"rg_ie\": \"11122233344\",\r\n        \"capital_social\": 1000,\r\n        \"enable\": true\r\n    },\r\n    \"especifico\": {}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/administrador_judicial",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"administrador_judicial"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Vara Judicial",
+			"item": [
+				{
+					"name": "Lista vara judicial",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/vara_judicial?modo=COMBO&pagina=1&por_pagina=5",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"vara_judicial"
+							],
+							"query": [
+								{
+									"key": "modo",
+									"value": "COMBO"
+								},
+								{
+									"key": "pagina",
+									"value": "1"
+								},
+								{
+									"key": "por_pagina",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Busca vara judicial",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/vara_judicial/5",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"vara_judicial",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cria vara judicial",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"Vara 010\",\r\n  \"numero\": \"009988774410\",\r\n  \"comarca\": \"Comarca teste 10\",\r\n  \"municipio\": \"São Paulo\",\r\n  \"uf\": \"uf\",  \r\n  \"enable\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/vara_judicial",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"vara_judicial"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{access_token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"//pm.environment.set(\"url\", \"https://dev.perfcloud.app/api/gateway\");",
+					"pm.environment.set(\"url\", \"http://127.0.0.1:8000\");",
+					"var body_auth = '{'+",
+					"'\t\"user\":\"admin4@teste.com.br\",'+",
+					"'\t\"password\":\"test@123\"'+",
+					"'}';",
+					"",
+					"pm.sendRequest({",
+					"    url: pm.environment.get(\"url\") + '/auth',",
+					"    method: 'POST',",
+					"    header: {",
+					"        'content-type': 'application/json'",
+					"    },    ",
+					"    body: {",
+					"        mode: 'raw',",
+					"        raw: body_auth",
+					"    }",
+					"}, function (err, res) {",
+					"    console.log('res');",
+					"    pm.environment.set(\"access_token\", res.json().access_token);",
+					"});"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url_prod",
+			"value": "https://dev.perfcloud.app/api/gateway",
+			"type": "string"
+		},
+		{
+			"key": "url",
+			"value": "http://127.0.0.1:8000",
+			"type": "string"
+		}
+	]
+}

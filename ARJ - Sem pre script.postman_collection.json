@@ -1,0 +1,154 @@
+{
+	"info": {
+		"_postman_id": "575c285b-a864-441e-80cb-fe339393314f",
+		"name": "ARJ - Sem pre script",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4292671"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Gera Token",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user\": \"admin4@teste.com.br\",\r\n    \"password\": \"test@123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/auth",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deleta sessão",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NzI4ODYxMTQsImV4cCI6MTY3Mjk3MjU3NCwidHlwZV90b2tlbiI6ImFjY2Vzc190b2tlbiIsInVzZXJfaWQiOjEsImFwZWxpZG9fZmFudGFzaWEiOiJqb3JnZSIsInBlcmZpbCI6IkFSSiIsInJvbGUiOiIwMCJ9.2Kjc144l1-jeLZLPNUI2a7_8l8I3tvAW4q1I0jZXfVs",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/auth",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualiza Token",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"refresh_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NzAyODM1NDYsImV4cCI6MTY3Mjg3NzM0NiwidHlwZV90b2tlbiI6InJlZnJlc2hfdG9rZW4iLCJ1c2VyX2lkIjoxLCJhcGVsaWRvX2ZhbnRhc2lhIjoiSm9yZ2UiLCJwZXJmaWwiOiJBRE1JTklTVFJBRE9SX0pVRElDSUFMIiwicm9sZSI6IjMwIn0.nFooZ4HIugJhnoRw9dF4kKgwvbfNDPiwn1qwJTK5pRE\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/auth",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "noauth"
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url_prod",
+			"value": "https://dev.perfcloud.app/api/gateway",
+			"type": "string"
+		},
+		{
+			"key": "url",
+			"value": "http://127.0.0.1:8000",
+			"type": "string"
+		}
+	]
+}
